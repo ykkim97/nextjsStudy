@@ -13,16 +13,17 @@ export default async function handler(req, res) {
             const client = await connectDB;
             const db = client.db("forum");
             
+            let newObj = { title : req.body.title, content : req.body.content };
             
             let result = await db.collection('post').updateOne(
                 {_id : new ObjectId(req.body._id)}, 
-                {$set : { title : req.body.title, content : req.body.content }}
+                {$set : newObj}
             );
     
             return res.status(200).redirect('/list')
         } catch (error) {
             console.log(new ObjectId(req.body._id),"new ObjectId(req.body._id");
-            return res.status(500).json('Database ERROR!!')
+            return res.status(500).json('ERROR!!')
         }
 
 

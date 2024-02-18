@@ -13,6 +13,7 @@ export default async function Edit(props) {
             <form action="/api/post/update" method="POST">
                 <input name="title" defaultValue={result.title}/>
                 <input name="content" defaultValue={result.content}/>
+                <input name="_id" value={result._id.toString()} type="hidden"/>
                 <button type="submit">수정</button>
             </form>
         </div>
