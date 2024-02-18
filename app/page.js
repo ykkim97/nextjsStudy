@@ -1,5 +1,6 @@
 import { connectDB } from "@/util/database";
 import { MongoClient } from "mongodb"
+import Link from "next/link";
 
 export default async function Home() {
 
